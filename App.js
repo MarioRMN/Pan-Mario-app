@@ -11,15 +11,14 @@ import PanesPantalla from './src/containers/PanesPantalla';
 
 const HistoriaStack = createNativeStackNavigator();
 
-//stack para pulsar para la navegacion
-//inicio pantalla STACK
-function PantallaH() { //LAS DOS VENTANAS POR LAS QUE NAVEGAREMOS
+function PantallaH() { 
   return (
     <HistoriaStack.Navigator>
-      <HistoriaStack.Screen name="Obrador Pan Paco" component={HistoriaPantalla} //PANTALLA DE Historia
-        options={{ //detalles del encabezado 
-          headerTintColor: 'black',
-          headerTitleAlign: 'center'
+      <HistoriaStack.Screen name="Obrador Pan Paco" component={HistoriaPantalla} //PANTALLA DE HISTORIA DE LOS PANES
+        options={{ 
+          headerStyle:{backgroundColor:'#ffff99'},
+          headerTintColor: 'brown',
+          headerTitleAlign: 'center',
         }} />
       
   </HistoriaStack.Navigator>
@@ -30,11 +29,11 @@ function PantallaH() { //LAS DOS VENTANAS POR LAS QUE NAVEGAREMOS
 function PantallaP(){
   return(
   <PanesStack.Navigator>
-    <PanesStack.Screen name="Tipos de Panes" component={PanesPantalla} //PANTALLA DE DETALLE
-    options={{
-
-      headerTintColor: 'black',
-      headerTitleAlign: 'center',
+    <PanesStack.Screen name="Tipos de Panes" component={PanesPantalla} //PANTALLA DE PANES DE MI PADRE
+      options={{
+          headerStyle:{backgroundColor:'#ffff99'},
+          headerTintColor: 'brown',
+          headerTitleAlign: 'center',
     }} />
     </PanesStack.Navigator>
   )
