@@ -28,10 +28,7 @@ export default function HistoriaPantalla() {
                         </>
                     )
                 }}
-                contentContainerStyle={{
-                    flexGrow: 1,
-                    }}
-                
+
             />
         </View>
     );
