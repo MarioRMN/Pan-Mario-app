@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Text, View, Image, FlatList,Dimensions,ImageBackground } from 'react-native';
 import { StyleSheet } from 'react-native';
 
@@ -10,7 +10,7 @@ const DATA = [{ image: require('../assets/Papa.jpg'), descripcion: 'Obrador Pan 
 ]
 
 //estilos de las cosas
-const styles = StyleSheet.create(
+const styles1 = StyleSheet.create(
     {
       letraHistoria:{
         textAlign:'center',
@@ -36,7 +36,7 @@ export default function HistoriaPantalla() {
         <ImageBackground
             resizeMode='cover' 
             source={require('../assets/fondo.jpg')}>
-            <Text style={styles.letraHistoria}>Bienvenido a la historia de la panadería de mi padre, Obrador PanPaco</Text>
+            <Text style={styles1.letraHistoria}>Bienvenido a la historia de la panadería de mi padre, Obrador PanPaco</Text>
             <FlatList
                 data={DATA}
                 renderItem={({ item }) => {
@@ -47,7 +47,7 @@ export default function HistoriaPantalla() {
                                 resizeMode='contain'
                                 source={item.image}
                             />
-                            <Text style={styles.descripcion}>{item.descripcion}</Text>
+                            <Text style={styles1.descripcion}>{item.descripcion}</Text>
 
                         </>
                     )

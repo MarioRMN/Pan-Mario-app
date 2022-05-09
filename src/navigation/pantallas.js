@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const HistoriaStack = createNativeStackNavigator();
-const PanesStack = createNativeStackNavigator();
+//const PanesStack = createNativeStackNavigator();
 
 import HistoriaPantalla from '../containers/HistoriaPantalla';
 import PanesPantalla from '../containers/PanesPantalla';
@@ -31,6 +31,6 @@ export default function pantallas() { //LAS DOS VENTANAS POR LAS QUE NAVEGAREMOS
             headerTintColor: 'black',
             headerTitleAlign: 'center',
           }} />
-      </NavegacionStack.Navigator>
+      </HistoriaStack.Navigator>
     );
   }

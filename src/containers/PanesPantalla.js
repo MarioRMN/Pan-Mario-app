@@ -1,46 +1,29 @@
-import React from 'react';
+import * as React from 'react';
 import { Text, View, Image, FlatList,Dimensions,ImageBackground } from 'react-native';
+import PanesList from '../components/Panes/PanesList';
 import { StyleSheet } from 'react-native';
 
+const PANES = [
+{ id: 1, title:"Pan integral", image: require('../assets/artesanal.jpg'),precio:"3.5", descripcion:'Este pan es creado con masa madre y aceite de oliva'},
+{id:2, title:"Pan rústico",image: require('../assets/artesanal.jpg'),precio:"3.5", descripcion:'Este pan es rústico, viene de Toledo la harina'},
+{id:3, title:"Pan Brioche",image: require('../assets/artesanal2.jpg'),precio:"2", descripcion:'Este pan es rústico, viene de Toledo la harina'},
+{id:4, title:"Pan de curry",image: require('../assets/variedad.jpg'),precio:"5", descripcion:'Este pan es rústico, viene de Toledo la harina'},
+{id:5, title:"Pan rústico",image: require('../assets/artesanal.jpg'),precio:"3.5", descripcion:'Este pan es rústico, viene de Toledo la harina'}
 
-const DATA = [
-{ image: require('../assets/rebanadas.jpg'), descripcion: 'Pan integral' },
-{ image: require('../assets/rebanadas2.jpg'), descripcion: 'Mismo pan pero cortado.' },
-{ image: require('../assets/artesanal.jpg'), descripcion: 'Pan artesanal' },
-{ image: require('../assets/Papa.jpg'), descripcion: 'Papa'}
+
 ]
 
-//estilos de las cosas
-const styles = StyleSheet.create(
+const styles1 = StyleSheet.create(
     {
       letraHistoria:{
         textAlign:'center',
         fontSize:30,
         fontWeight:'bold',
-        color:'brown'
-      },
-      fondo:{
-          backgroundColor:'#d6bc72'
-      },
-      descripcion:{
-        fontSize:18,
-        marginBottom:50,
-        color:'black',
-        textAlign:'center'
-      },
-      intro:{
-          marginTop:30
-      },
-      pan:{
         color:'brown',
-        fontWeight:'bold',
-        textShadowColor:'black',
-        textShadowRadius:5,
-        fontSize:22,
-        textAlign:'center',
-        marginTop:10,
-        marginBottom:10
-      },
+        paddingBottom:20,
+        borderBottomWidth:2,
+        borderBottomColor:'brown'
+        },
     })
 
 //PANTALLA INFORMACION
@@ -49,25 +32,13 @@ export default function PanesPantalla() {
         <ImageBackground
             resizeMode='cover' 
             source={require('../assets/fondo.jpg')}>
-            <Text style={styles.letraHistoria}>Estos son los tipos de panes que disponemos:</Text>
+            <Text style={styles1.letraHistoria}>Estos son los tipos de panes que disponemos:</Text>
             <FlatList
-                data={DATA}
-                renderItem={({ item }) => {
-                    return ( //imagen y descripcion de cada foto
-                        <>
-                            <Image
-                                style={{width: 200, height: 200,marginLeft:100}}
-                                resizeMode='contain'
-                                source={item.image}
-                            />
-                            <Text style={styles.pan}>{item.descripcion}</Text>
-
-                        </>
-                    )
-                }}
-
-            />
-            </ImageBackground>  
+                data={PANES}
+                renderItem={({ item }) =><PanesList pan= {item} />}
+                keyExtractor={item => item.id}
+                />
+        </ImageBackground>  
         );
 
 }
