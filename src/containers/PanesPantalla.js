@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, Image, FlatList,Dimensions,ImageBackground } from 'react-native';
+import { Text, View, FlatList,ImageBackground, } from 'react-native';
 import PanesList from '../components/Panes/PanesList';
 import { StyleSheet } from 'react-native';
 

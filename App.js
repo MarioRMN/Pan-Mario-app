@@ -3,12 +3,12 @@ import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { StyleSheet } from 'react-native';
 
 
 const Tab = createBottomTabNavigator();
 import HistoriaPantalla from './src/containers/HistoriaPantalla';
 import PanesPantalla from './src/containers/PanesPantalla';
+import ContactoPantalla from './src/containers/ContactoPantalla';
 
 
 const HistoriaStack = createNativeStackNavigator();
@@ -41,6 +41,21 @@ function PantallaP(){
   )
 };
 
+const ContactoStack = createNativeStackNavigator();
+
+function PantallaC(){
+  return(
+    <ContactoStack.Navigator>
+      <ContactoStack.Screen name="Contacto Pan Paco" component={ContactoPantalla} //PANTALLA DE PANES DE MI PADRE
+      options={{
+          headerStyle:{backgroundColor:'#ffff99'},
+          headerTintColor: 'brown',
+          headerTitleAlign: 'center',
+    }} />
+    </ContactoStack.Navigator>
+  )
+}
+
 function App() {
   return (
     <NavigationContainer>
@@ -57,8 +72,11 @@ function App() {
             } else if (route.name === 'Panes') {
               iconName = focused ? 'ios-restaurant-outline'
             : 'ios-restaurant';
-            }
-            return <Ionicons name={iconName} size={size} color={color} />;
+            } else if(route.name ==='Contacto') {
+              iconName = focused ? 'ios-map'
+            : 'map';
+          }
+          return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: 'beige',
           tabBarInactiveTintColor: 'black',
@@ -81,6 +99,13 @@ function App() {
             headerTintColor:'black',
             headerTitleAlign:'center'
           }} name= "Panes" component={PantallaP}
+          />
+          <Tab.Screen options={{
+            headerShown:false,
+            headerTitle:'Contacto Pan Paco',
+            headerTintColor:'black',
+            headerTitleAlign:'center'
+          }} name= "Contacto" component={PantallaC}
           />
       </Tab.Navigator>
     

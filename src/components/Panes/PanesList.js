@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View,Image} from 'react-native';
+import {Text, View,Image, TouchableOpacity} from 'react-native';
 import { StyleSheet } from 'react-native';
 
 
@@ -37,10 +37,12 @@ const styles = StyleSheet.create({
 
 export default function PanesList({pan}){
     return(
+        <TouchableOpacity>
         <View style={styles.panes}>
             <Image style={styles.image} source={pan.image}/>
             <Text style={styles.texto}>{pan.title}</Text>
             <Text style={styles.precio}>{pan.precio}€/kg</Text>
         </View>
+        </TouchableOpacity>
     )
 }
