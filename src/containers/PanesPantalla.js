@@ -27,7 +27,7 @@ const styles1 = StyleSheet.create(
     })
 
 //PANTALLA INFORMACION
-export default function PanesPantalla() {
+export default function PanesPantalla({navigation}) {
     return (
         <ImageBackground
             resizeMode='cover' 
@@ -36,7 +36,7 @@ export default function PanesPantalla() {
             <Text style={styles1.letraHistoria}>Estos son los tipos de panes que disponemos:</Text>
             <FlatList
                 data={PANES}
-                renderItem={({ item }) =><PanesList pan= {item} />}
+                renderItem={({ item }) =><PanesList pan= {item} onPress={()=>navigation.navigate('Detalle de pan',{item:item})} />}
                 keyExtractor={item => item.id}
                 />
             </View>

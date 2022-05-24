@@ -35,9 +35,9 @@ const styles = StyleSheet.create({
     }
 })
 
-export default function PanesList({pan}){
+export default function PanesList({pan, onPress}){
     return(
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
         <View style={styles.panes}>
             <Image style={styles.image} source={pan.image}/>
             <Text style={styles.texto}>{pan.title}</Text>

@@ -9,7 +9,12 @@ const Tab = createBottomTabNavigator();
 import HistoriaPantalla from './src/containers/HistoriaPantalla';
 import PanesPantalla from './src/containers/PanesPantalla';
 import ContactoPantalla from './src/containers/ContactoPantalla';
-
+import PanIntegral from './src/containers/Panes/PanIntegral';
+import PanRustico from './src/containers/Panes/PanRustico';
+import PanBlanco from './src/containers/Panes/Pan Blanco';
+import PanCurry from './src/containers/Panes/PanCurry';
+import PanBrioche from './src/containers/Panes/PanBrioche';
+import DetallePan from './src/containers/DetallePan';
 
 const HistoriaStack = createNativeStackNavigator();
 
@@ -37,6 +42,13 @@ function PantallaP(){
           headerTintColor: 'brown',
           headerTitleAlign: 'center',
     }} />
+     <PanesStack.Screen name="Detalle de pan" component={DetallePan}
+      options={{
+          headerStyle:{backgroundColor:'#ffff99'},
+          headerTintColor: 'brown',
+          headerTitleAlign: 'center',
+    }} />
+    
     </PanesStack.Navigator>
   )
 };
@@ -107,6 +119,7 @@ function App() {
             headerTitleAlign:'center'
           }} name= "Contacto" component={PantallaC}
           />
+
       </Tab.Navigator>
     
     </NavigationContainer>
